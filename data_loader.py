@@ -1,3 +1,7 @@
+""" LOAD DATA AND RETRIEVE INFORMATION
+    Some of these function have been taken from the official
+    Physionet Challenge 2021 Github helper_code.py template"""
+
 import scipy.io as sc
 import wfdb
 import numpy as np
@@ -5,7 +9,7 @@ import os
 
 # Load .mat files
 def load_mat(mat_file):
-    
+    """Function loading mat files"""
     mat_data = sc.loadmat(mat_file)
     ecg_signals = mat_data['val']
 
@@ -13,17 +17,17 @@ def load_mat(mat_file):
 
 # Load .hea files
 def load_header(header_file):
-    
-    with open(header_file, 'r') as f:
+    """Function loading header files"""
+    with open(header_file, 'r', encoding="utf-8") as f:
         header = f.read()
     return header
-        
-    
+
+
 # Get info from header file as wfdb.rdsamp does not work with custom headers
 
 def get_line(header_file, line_num):
+    """Function to get a specific line in the file"""
     lines = header_file.splitlines()
-    
     try:
         line = lines[line_num]
         return line
