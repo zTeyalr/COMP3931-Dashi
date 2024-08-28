@@ -1,20 +1,26 @@
+import os
+import tarfile
+
+import numpy as np
 import scipy.io as sc
 import wfdb
-import numpy as np
-import os
-import data_loader
-import preprocessing
 import matplotlib.pyplot as plt
 
+import data_loader
+import preprocessing
+
+
 def main():
-    sample_data = 'sample_data\WFDB_Ga'
-    counter = 0
+    """main method"""
+    sample_data = "sample_data\WFDB_Ga"
+    n = 10
+    i = 0
     
     for filename in os.listdir(sample_data):
+        i += 1
+        if i > 10:
+            break
         if filename.endswith('.mat'):
-            counter+=1
-            if counter > 1:
-                break
             
             mat_file = os.path.join(sample_data, filename)
             hea_file = mat_file.replace('.mat', '.hea')
@@ -22,6 +28,7 @@ def main():
             try:
                 ecg_dict = data_loader.load_mat(mat_file)
                 metadata = data_loader.load_header(hea_file)
+
                 freq=data_loader.get_frequency(metadata)
                 
                 # Preprocessing the data
@@ -56,9 +63,8 @@ def main():
 
             except FileNotFoundError:
                 print(f"Warning: Corresponding file not found for {filename}")
-    
-    print(counter)
     return
+
 
 if __name__ == "__main__":
     main()
