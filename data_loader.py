@@ -66,7 +66,8 @@ def get_frequency(header_file):
     
     try:
         frequency = get_line(header_file, 0).split(' ')[2]
-        return frequency
+        return int(frequency)
+
     except IndexError:
         print(f"Out of bound Index")
 
