@@ -6,7 +6,7 @@ https://drive.google.com/drive/folders/1qpE3rexHSguo8WZyl7xpy3nRjvZDhSUw?usp=dri
 
 Sample data zip folder contains the ECG recordings from PhysioNet DB.
 Preprocessed_data, is the already preprocessed data using the "preprocess" step.
-Please unzip them both before running the program.
+Please unzip them both and put the single folders in the same folder of the project before running the program.
 If needed to try preprocess without the use of the existing one, please delete the existing preprocess_data folder as they would overlap.
 
 ecg_12lead_model.pth is the trained model before the new changes in the preprocess phase that gave the results stated in the paper (probably data leaking)
