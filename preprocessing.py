@@ -174,7 +174,6 @@ def preprocess_and_save(ecg_dir, output_dir):
     num_samples = 0
     target_frequency = 500
     subset_name = ['train', 'val', 'test']
-
     # TRAIN DATASET
     for i in range(0, len(train_indices), batch_size):
         
@@ -204,7 +203,6 @@ def preprocess_and_save(ecg_dir, output_dir):
         del batch_preprocessed
         del batch_features
     print("DONE TRAINING")
-
     #VALIDATION DATASET
     for i in range(0, len(val_indices), batch_size):
 
@@ -226,7 +224,6 @@ def preprocess_and_save(ecg_dir, output_dir):
         del batch_preprocessed
         del batch_features
     print("DONE VAL")
-
     #TEST DATASET
     for i in range(0, len(test_indices), batch_size):
 

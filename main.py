@@ -22,7 +22,6 @@ def main():
     elif args.mode == "train":
         train_model(num_workers=args.num_workers)
 
-
     return
 
 

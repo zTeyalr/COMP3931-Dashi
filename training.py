@@ -62,7 +62,6 @@ def collate_fn(batch, dataset):
 
     return data, labels, masks, features_tensor
 
-
 def train_model(num_workers = 0):
     sample_data = 'preprocess_bit'
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -73,7 +72,6 @@ def train_model(num_workers = 0):
     num_data = 0
     ecg_data_paths =  []
 
-    print("LINE 14")
     amodel = ECGNet()
     DATA_PATH = 'preprocessed_data'
     dataset = ECGDataset(ecg_data_all=ecg_data, ecg_data_paths=ecg_data_paths ,header_all=header, transform=None)
@@ -111,8 +109,6 @@ def train_model(num_workers = 0):
     for epoch in range(NUM_EPOCHS):
         amodel.train()
         running_loss = 0.0
-        print("LINE 42")
-
         for i, (data, labels, features) in enumerate(train_loader):
 
             data = data.to(device)
@@ -130,7 +126,6 @@ def train_model(num_workers = 0):
             optimizer.step()
 
             running_loss += loss.item()
-
         epoch_loss = running_loss / len(train_loader)
         
         # VALIDATION
@@ -155,7 +150,6 @@ def train_model(num_workers = 0):
                 predicted_labels.extend(predicted_labelszzz.cpu().numpy())
                 true_labels.extend(labels.cpu().numpy())
                 val_loss += criterion(outputs, labels).item()
-
         avg_val_loss = val_loss / len(val_loader)
         val_f1 = f1_score(true_labels[0], predicted_labels[0], average = 'weighted')
         val_f1_macro = f1_score(true_labels[0], predicted_labels[0], average = 'macro')

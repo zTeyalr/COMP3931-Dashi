@@ -29,8 +29,6 @@ class ECGDataset(Dataset):
             signal = self.ecg_data[idx]
             header = self.headers[idx]
             features = self.features[idx]
-            
-            #print("SIGNAL DATASET ECG", header, signal)
 
             snomet_code = get_patient_data(header)['Dx']
             scored_labels, unscored_labels = get_snomed_list()
