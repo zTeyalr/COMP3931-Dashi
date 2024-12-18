@@ -2,6 +2,7 @@ INDIVIDUAL PROJECT FOR COMP3931
 Program developed in VSCode (Windows)
 
 There is a link to Google Drive for downloading Sample Data and Preprocessed_data.
+https://drive.google.com/drive/folders/1qpE3rexHSguo8WZyl7xpy3nRjvZDhSUw?usp=drive_link
 
 Sample data zip folder contains the ECG recordings from PhysioNet DB.
 Preprocessed_data, is the already preprocessed data using the "preprocess" step.
