@@ -1,5 +1,6 @@
 __pycache__/
 sample_data/
+preprocessed_data/
 training_data/
 uni_project/
 .vs/
